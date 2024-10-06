@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: eks-node-app
+  labels:
+    app: eks-node-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: eks-node-app
+  template:
+    metadata:
+      labels:
+        app: eks-node-app
+    spec:
+      containers:
+        - name: eks-node-app
+          image: 339713074545.dkr.ecr.us-east-2.amazonaws.com/eks-node-app:1.1
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8080
