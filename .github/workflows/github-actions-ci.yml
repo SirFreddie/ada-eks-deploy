@@ -1,11 +1,11 @@
 name: Node ks app deploy to EKS pipeline
-on:
+on: # Cuando se ejecuta el pipeline
   push:
     branches: ["main"]
   pull_request:
     branches: ["main"]
 
-jobs:
+jobs: # Definicion del pipeline
   deploy:
     runs-on: ubuntu-latest # Servidor donde va a correr (ubuntu, windows, macos)
     steps:
