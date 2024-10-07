@@ -41,7 +41,16 @@ jobs:
       - name: Update kube config
         run: aws eks update-kubeconfig --name ada-cluster-2
 
+      - name: Clean up old Pods
+        run: |
+          kubectl delete pods -l app=eks-node-app
+
       - name: Deploy to EKS
         run: |
           kubectl apply -f k8s/deployment.yaml
           kubectl apply -f k8s/service.yaml
+          kubectl rollout restart deployment eks-node-app
+
+      - name: Check rollout status
+        run: |
+          kubectl rollout status deployment eks-node-app
