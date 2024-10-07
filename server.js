@@ -42,7 +42,7 @@ function getPage(message) {
     "}\n" +
     "\n" +
     ".bgimg {\n" +
-    "  background-image: url('https://www.ucu.edu.uy/imgnoticias/202212/W1920_H780/983.jpeg');\n" +
+    "  background-image: url('https://assets.bell-sw.com/www.bell-sw.com/static/b8fb059f54444cee56a5c2aff2a4db04/2d11e/how-to-deploy-application-replicas-in-local-kubernetes-clusters.png');\n" +
     "  height: 100%;\n" +
     "  background-position: center;\n" +
     "  background-size: cover;\n" +
