@@ -18,7 +18,7 @@ const ENV = "DEV";
 const app = express();
 app.get("/", (req, res) => {
   res.statusCode = 200;
-  const msg = "Hello from ADA Node!";
+  const msg = "Hello from ADA II Node!";
   res.send(getPage(msg));
 });
 
