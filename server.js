@@ -42,6 +42,7 @@ function getPage(message) {
     "}\n" +
     "\n" +
     ".bgimg {\n" +
+    "  background-image: url('https://www.w3schools.com/w3images/forestbridge.jpg');\n" +
     "  height: 100%;\n" +
     "  background-position: center;\n" +
     "  background-size: cover;\n" +
