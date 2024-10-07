@@ -42,7 +42,7 @@ function getPage(message) {
     "}\n" +
     "\n" +
     ".bgimg {\n" +
-    "  background-image: url('https://www.w3schools.com/w3images/forestbridge.jpg');\n" +
+    "  background-image: url('https://www.ucu.edu.uy/imgnoticias/202212/W1920_H780/983.jpeg');\n" +
     "  height: 100%;\n" +
     "  background-position: center;\n" +
     "  background-size: cover;\n" +
