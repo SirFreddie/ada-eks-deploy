@@ -1,3 +1,9 @@
+# Un Service es una abstracción que expone una aplicación que se ejecuta en un conjunto de Pods.
+# Kubernetes crea un servicio para hacer que los Pods sean accesibles dentro o fuera del clúster (según el tipo de servicio).
+# Tipos de Servicios:
+#   - ClusterIP: Hace accesible el servicio solo dentro del clúster de Kubernetes.
+#   - NodePort: Expones el servicio fuera del clúster usando una IP y un puerto específicos en cada nodo.
+#   - LoadBalancer: Configura un balanceador de carga externo para distribuir el tráfico entre los Pods.
 apiVersion: v1
 kind: Service
 metadata:

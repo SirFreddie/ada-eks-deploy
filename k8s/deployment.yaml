@@ -1,3 +1,6 @@
+# Un Deployment es una definición de cómo Kubernetes debe desplegar y gestionar los Pods.
+# Incluye detalles como la imagen de Docker que se va a usar, cuántas réplicas del Pod deben ejecutarse,
+# y la estrategia de actualización que debe seguirse.
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -5,7 +8,7 @@ metadata:
   labels:
     app: eks-node-app
 spec:
-  replicas: 2
+  replicas: 2 # Cantidad de replicas (pods) que queremos
   selector:
     matchLabels:
       app: eks-node-app
@@ -16,7 +19,7 @@ spec:
     spec:
       containers:
         - name: eks-node-app
-          image: 339713074545.dkr.ecr.us-east-2.amazonaws.com/eks-node-app:1.1
+          image: 339713074545.dkr.ecr.us-east-2.amazonaws.com/eks-node-app:1.1 # Imagen de docker que queremos deployar (en este caso, la que subimos a Amazon ECR)
           imagePullPolicy: Always
           ports:
             - containerPort: 8080

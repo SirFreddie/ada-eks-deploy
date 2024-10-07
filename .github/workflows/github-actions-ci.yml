@@ -1,4 +1,4 @@
-name: Node ks app deploy to EKS pipeline
+name: Node app deploy to EKS pipeline
 on: # Cuando se ejecuta el pipeline
   push:
     branches: ["main"]
@@ -7,25 +7,25 @@ on: # Cuando se ejecuta el pipeline
 
 jobs: # Definicion del pipeline
   deploy:
-    runs-on: ubuntu-latest # Servidor donde va a correr (ubuntu, windows, macos)
+    runs-on: ubuntu-latest # Servidor donde va a correr el GitHub runner (ubuntu, windows, macos)
     steps:
-      - name: Checkout code
+      - name: Checkout code # Obtiene el codigo del repositorio
         uses: actions/checkout@v3 # uses para builtin functions, run para custom scripts
 
-      - name: Install kubectl
+      - name: Install kubectl # Instala kubectl en el runner
         uses: azure/setup-kubectl@v2.0
         with:
           version: "v1.24.0"
         id: install
 
-      - name: Configure AWS credentials
+      - name: Configure AWS credentials # Configura las credenciales de AWS
         uses: aws-actions/configure-aws-credentials@v1
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: us-east-2
 
-      - name: Login to Amazon ECR # Container registry
+      - name: Login to Amazon ECR # Loguea en Amazon ECR (container registry)
         id: login-ecr
         uses: aws-actions/amazon-ecr-login@v1
 
@@ -38,7 +38,7 @@ jobs: # Definicion del pipeline
           docker build -t $REGISTRY/eks-node-app:$IMAGE_TAG .
           docker push $REGISTRY/eks-node-app:$IMAGE_TAG
 
-      - name: Update kube config
+      - name: Update kube config # Actualiza el kubeconfig para apuntar al cluster de EKS donde queremos deployar el codigo
         run: aws eks update-kubeconfig --name ada-cluster-2
 
       # - name: Clean up old Pods
